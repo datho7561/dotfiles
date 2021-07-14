@@ -3,9 +3,10 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
 
-" use rose pine dawn to indicate that this is neovim
-let g:rose_pine_variant='dawn'
-colorscheme rose-pine
+" use solarized to indicate that this is neovim
+set background="light"
+colorscheme solarized8
+let g:lightline.colorscheme = 'solarized'
 
 " lsp
 lua << EOF
