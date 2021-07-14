@@ -16,16 +16,24 @@ call plug#begin()
 Plug 'datho7561/molokai', {'branch': 'monokai-datho7561'} " my fork of molokai
 Plug 'arcticicestudio/nord-vim'
 Plug 'lifepillar/vim-solarized8'
+if has('nvim')
+  Plug 'rose-pine/neovim', {'branch': 'main'}
+endif
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'cespare/vim-toml'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'alker0/chezmoi.vim', {'branch': 'main'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+if !has('nvim')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+else
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+endif
 
 call plug#end()
 
