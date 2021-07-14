@@ -25,6 +25,7 @@ Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'cespare/vim-toml'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'jremmen/vim-ripgrep'
+Plug 'alker0/chezmoi.vim', {'branch': 'main'}
 
 call plug#end()
 
@@ -153,7 +154,6 @@ let g:coc_filetype_map = {
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" i used to shortcut all my dotfiles, but that doesn't work well with chezmoi
 " edit CoC config
 nnoremap <leader>ec :CocConfig<cr>
 " source vimrc quickly
