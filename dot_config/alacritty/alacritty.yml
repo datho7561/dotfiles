@@ -1,0 +1,64 @@
+font:
+  normal:
+    family: FiraMono Nerd Font
+  size: 13
+colors: # Monokai
+  primary:
+    background: '#1e1f1c'
+    foreground: '#EAE9E1'
+  cursor:
+    text:    '#272822'
+    cursor:  '#EAE9E1'
+  normal:
+    black:   '#272822'
+    red:     '#f92672'
+    green:   '#a9dc76'
+    yellow:  '#E6DB74'
+    blue:    '#52a2da'
+    magenta: '#AE81FF'
+    cyan:    '#66D9EF'
+    white:   '#f8f8f2'
+  bright:
+    black:   '#414339'
+    red:     '#f92672'
+    green:   '#a9dc76'
+    yellow:  '#E6DB74'
+    blue:    '#52a2da'
+    magenta: '#AE81FF'
+    cyan:    '#66D9EF'
+    white:   '#CECCC0'
+#colors: # Solarized
+#  # Default colors
+#  primary:
+#    background: '0xfdf6e3'
+#    foreground: '0x586e75'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x073642'
+#    red:     '0xdc322f'
+#    green:   '0x859900'
+#    yellow:  '0xb58900'
+#    blue:    '0x268bd2'
+#    magenta: '0xd33682'
+#    cyan:    '0x2aa198'
+#    white:   '0xeee8d5'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x002b36'
+#    red:     '0xdc322f'
+#    green:   '0x859900'
+#    yellow:  '0xb58900'
+#    blue:    '0x268bd2'
+#    magenta: '0xd33682'
+#    cyan:    '0x2aa198'
+#    white:   '0xfdf6e3'
+window:
+  decorations: none
+  startup_mode: Maximized
+  dynamic_padding: true
+  padding:
+    x: 5
+    y: 5
+
