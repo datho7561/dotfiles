@@ -1,0 +1,10 @@
+add_newline = false
+
+[directory]
+home_symbol = ""
+
+[java]
+symbol = "  "
+
+[git_branch]
+symbol = " "
