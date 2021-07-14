@@ -153,17 +153,10 @@ let g:coc_filetype_map = {
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Shortcuts for editing dotfiles (.vimrc, alacritty.yml, bashrc)
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>ea :e ~/.config/alacritty/alacritty.yml<cr>
-nnoremap <leader>eb :e ~/.bashrc<cr>
-nnoremap <leader>et :e ~/.tmux.conf<cr>
-nnoremap <leader>ei :e ~/.config/i3/config<cr>
-nnoremap <leader>es :e ~/.config/sway/config<cr>
-nnoremap <leader>eg :e ~/.gitconfig<cr>
-nnoremap <leader>ep :e ~/Desktop/todo.txt<cr>
-nnoremap <leader>er :e ~/.config/starship.toml<cr>
+" i used to shortcut all my dotfiles, but that doesn't work well with chezmoi
+" edit CoC config
 nnoremap <leader>ec :CocConfig<cr>
+" source vimrc quickly
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " hide files from search
@@ -180,6 +173,7 @@ nnoremap <leader>tm :colorscheme molokai<cr>
 nnoremap <leader>ts :set background=light<cr>:colorscheme solarized8<cr>
 
 " orgmode substitue
+nnoremap <leader>oo :e ~/Desktop/todo.txt<cr>
 nnoremap <leader>ot o<space>[<space>]<space>
 nnoremap <leader>on o<space><space>*<space><space>
 nnoremap <leader>oc 0f[lrx
