@@ -20,12 +20,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'cespare/vim-toml'
 Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'jremmen/vim-ripgrep'
 Plug 'alker0/chezmoi.vim', {'branch': 'main'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -137,6 +137,10 @@ nnoremap ; :
 " Disable wq since it is easy to fat finger this combo
 cnoremap wq <nop>
 
+" fzf
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fr :Rg 
+
 " Set Leader
 let mapleader = " "
 
@@ -158,9 +162,6 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 nnoremap <leader>ec :CocConfig<cr>
 " source vimrc quickly
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" hide files from search
-let g:ctrlp_custom_ignore = '(node_modules|out|target|\.git)'
 
 " Buffer shortcuts
 nnoremap <leader><tab> :bn<cr>
