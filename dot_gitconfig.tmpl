@@ -1,0 +1,27 @@
+[user]
+    name = David Thompson
+    email = {{ if (eq .chezmoi.username "dthompson") }} davthomp@redhat.com {{ else }} davidethompson@me.com {{ end }}
+[core]
+    editor = vim
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[alias]
+    st = status --branch
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %an/%cn)%Creset' --abbrev-commit --date=relative
+    commit = commit -s
+    co = checkout
+    b = branch -vv
+    amend = commit --amend --no-edit
+    peek = !sh -c 'git stash show -p stash@{$1}' -
+    nani = show --format="" --name-status HEAD
+    gnani = difftool HEAD^1
+    heckout = checkout
+    fuckit = reset --hard HEAD~
+[pull]
+    rebase = true
+[init]
+    defaultBranch = main
