@@ -1,6 +1,6 @@
 * {
   background-color: #1E1F1C;
-  font-family: "Fira Code";
+  font-family: "FiraCode Nerd Font";
   font-size: 14pt;
   font-weight: bold;
   color: #F8F8F2;
@@ -21,11 +21,12 @@
 #workspaces button * {
   padding: 3px 10px 3px 10px;
   background-color: #414339;
+  color: #66D9EF;
 }
 
 #workspaces button.focused * {
   padding: 3px 10px 3px 10px;
-  background-color: #A6E22E;
+  background-color: #A9DC76;
   color: #1E1F1C;
 }
 
@@ -34,3 +35,10 @@
   padding: 3px 10px 3px 10px;
   margin: 0px;
 }
+
+#battery {
+  color: #AE81FF;
+  padding: 3px 10px 3px 10px;
+  margin: 0px;
+}
+

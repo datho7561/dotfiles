@@ -2,12 +2,17 @@
   "layer": "top",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio"],
+  "modules-right": ["battery", "pulseaudio"],
   "clock": {
     "format": "{:%Y/%m/%d %l:%M %p}",
     "on-click": "gnome-calendar",
   },
+  "battery": {
+    "format": " {capacity}%",
+    "design-capcity": false
+  },
   "pulseaudio": {
+    "format": "墳 {volume}%",
     "on-click": "pavucontrol"
   }
 }
