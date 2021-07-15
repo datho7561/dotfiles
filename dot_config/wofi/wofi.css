@@ -3,9 +3,9 @@
   color: #F92672;
   background-color: #1E1F1C;
   font-family: 'Fira Code';
-  font-size: 18px;
+  font-size: 14px;
   border-width: 2px;
-  border-color: #56ADBC;
+  border-color: #66D9EF;
   border-radius: 0px;
 }
 
@@ -20,11 +20,14 @@
 #entry {
   color: #88846F;
   font-family: 'Fira Code';
-  font-size: 18pt;
+  font-size: 14pt;
+}
+
+#text:selected {
+  color: #414339;
 }
 
 #entry:selected {
-  color: #F8F8F2;
-  background-color: #56ADBC;
+  background-color: #66D9Ef;
 }
 
