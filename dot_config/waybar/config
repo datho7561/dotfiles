@@ -1,0 +1,13 @@
+{
+  "layer": "top",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio"],
+  "clock": {
+    "format": "{:%Y/%m/%d %l:%M %p}",
+    "on-click": "gnome-calendar",
+  },
+  "pulseaudio": {
+    "on-click": "pavucontrol"
+  }
+}

@@ -1,0 +1,36 @@
+* {
+  background-color: #1E1F1C;
+  font-family: "Fira Code";
+  font-size: 14pt;
+  font-weight: bold;
+  color: #F8F8F2;
+}
+
+#clock {
+  color: #F93672;
+  padding: 3px 10px 3px 10px;
+  margin: 0px;
+}
+
+#workspaces * {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#workspaces button * {
+  padding: 3px 10px 3px 10px;
+  background-color: #414339;
+}
+
+#workspaces button.focused * {
+  padding: 3px 10px 3px 10px;
+  background-color: #A6E22E;
+  color: #1E1F1C;
+}
+
+#pulseaudio {
+  color: #AE81FF;
+  padding: 3px 10px 3px 10px;
+  margin: 0px;
+}
