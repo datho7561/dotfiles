@@ -1,7 +1,7 @@
 font:
   normal:
     family: FiraCode Nerd Font
-  size: 13
+  size: 14
 colors: # Monokai
   primary:
     background: '#1e1f1c'
