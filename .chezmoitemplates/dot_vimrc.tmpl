@@ -1,0 +1,197 @@
+" Get [vim-plug](https://github.com/junegunn/vim-plug) if not present 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  {{ if (eq .chezmoi.os "linux") -}}
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  {{- else -}}
+  iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force
+  {{- end }}
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Plugins
+call plug#begin()
+
+Plug 'datho7561/molokai', {'branch': 'monokai-datho7561'} " my fork of molokai
+Plug 'arcticicestudio/nord-vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'cespare/vim-toml'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'alker0/chezmoi.vim', {'branch': 'main'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+if !has('nvim')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+else
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+endif
+
+call plug#end()
+
+" UTF-8
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+
+" Colouring
+set termguicolors " assume that this is being run in a true colour terminal
+syntax enable
+colorscheme molokai
+
+" Numbers and 80 char marker
+set nu
+let &colorcolumn=join(range(81,82),",")
+
+" Set tabs to be 4 wide, and keep tab button to insert a tab
+" (EditorConfig should adapt tab settings if a .editorconfig file is present)
+set tabstop=4
+
+" Splitting settings
+set splitright
+
+" Autocomplete for :o
+set wildmode=longest:full,full
+
+" Highlight search results
+set hlsearch
+
+" Highlight current line
+set cursorline
+
+" for tabline and statusline
+set showtabline=2
+set laststatus=2
+set noshowmode
+
+" modify the lightline molokai theme to suit my needs
+let s:black = [ '#272822', 233 ]
+let s:gray = [ '#808080', 244 ]
+let s:white = [ '#f8f8f2', 234 ]
+let s:cyan = [ '#66d9ef', 81 ]
+let s:green = [ '#a9dc76', 118 ]
+let s:orange = [ '#fc9867', 166 ]
+let s:pink = [ '#f92672', 161 ]
+let s:red = [ '#ff0000', 160 ]
+let s:yellow = [ '#e6db74', 229 ]
+
+let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+
+let s:p.normal.left = [ [ s:black, s:cyan ], [ s:orange, s:black ] ]
+let s:p.normal.middle = [ [ s:orange, s:black ] ]
+let s:p.normal.right = [ [ s:pink, s:black ], [ s:black, s:pink ] ]
+let s:p.normal.error = [ [ s:pink, s:black ] ]
+let s:p.normal.warning = [ [ s:yellow, s:black ] ]
+let s:p.insert.left = [ [ s:black, s:green ], [ s:green, s:black ] ]
+let s:p.visual.left = [ [ s:black, s:yellow ], [ s:yellow, s:black ] ]
+let s:p.replace.left = [ [ s:black, s:red ], [ s:red, s:black ] ]
+let s:p.inactive.left =  [ [ s:pink, s:black ], [ s:white, s:black ] ]
+let s:p.inactive.middle = [ [ s:gray, s:black ] ]
+let s:p.inactive.right = [ [ s:white, s:pink ], [ s:pink, s:black ] ]
+let s:p.tabline.left = [ [ s:pink, s:black ] ]
+let s:p.tabline.middle = [ [ s:pink, s:black] ]
+let s:p.tabline.right = copy(s:p.normal.right)
+let s:p.tabline.tabsel = [ [ s:black, s:pink ] ]
+
+let g:lightline#colorscheme#molokai#palette = lightline#colorscheme#flatten(s:p)
+
+" lightline config
+let g:lightline = {
+      \ 'colorscheme': 'molokai',
+      \ 'active': {
+      \   'left': [['mode'], ['cocstatus']],
+      \   'right': [['lineinfo'], ['filetype']],
+      \ },
+      \ 'tabline': {
+      \   'left': [['buffers']],
+      \   'right': [],
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ }
+
+" cursor needs to be at bottom/top to move view
+set scrolloff=0
+
+" Disable menus in GVIM
+set go-=m  "menu bar
+set go-=T  "toolbar
+set go-=r  "scrollbar
+set go+=d  "Use GTK dark theme
+
+" Show whitespace characters
+set listchars=tab:→\ ,space:·
+set list
+
+" Semicolon is also colon in normal mode
+nnoremap ; :
+
+" Disable wq since it is easy to fat finger this combo
+cnoremap wq <nop>
+
+
+" Set Leader
+let mapleader = " "
+
+" fzf
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fr :Rg 
+
+" CoC settings
+nnoremap <leader>co coc#refresh()
+nnoremap <leader>cd <Plug>(coc-definition)
+nnoremap <leader>cD <Plug>(coc-type-definition)
+nnoremap <leader>cf <Plug>(coc-format)
+nnoremap <leader>ca <Plug>(coc-codeaction-line)
+nnoremap <leader>cr <Plug>(coc-references)
+let g:coc_filetype_map = {
+      \ 'xsd': 'xml',
+      \ 'dtd': 'xml'
+      \ }
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" edit CoC config
+nnoremap <leader>ec :CocConfig<cr>
+" source vimrc quickly
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Buffer shortcuts
+nnoremap <leader><tab> :bn<cr>
+nnoremap <leader><s-tab> :bp<cr>
+nnoremap <leader>^ :bd<cr>
+
+" Theme shortcuts
+nnoremap <leader>tn :colorscheme nord<cr>
+nnoremap <leader>tm :colorscheme molokai<cr>
+nnoremap <leader>ts :set background=light<cr>:colorscheme solarized8<cr>
+
+" orgmode substitue
+nnoremap <leader>oo :e ~/Desktop/todo.txt<cr>
+nnoremap <leader>ot o<space>[<space>]<space>
+nnoremap <leader>on o<space><space>*<space><space>
+nnoremap <leader>oc 0f[lrx
+nnoremap <leader>oi 05i<space><esc>
+nnoremap <leader>ou 05x
+nnoremap <leader>ol o---<cr><esc>
+nnoremap <leader>od "=strftime("%d %B, %Y")<cr>P
+nnoremap <leader>oh o<cr>--  --<esc>hhi
+
+" line moving
+nnoremap <C-j> :m+1<cr>
+nnoremap <C-k> :m-2<cr>
+

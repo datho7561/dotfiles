@@ -1,0 +1,13 @@
+{{ if (eq .chezmoi.os "windows") -}}
+.bashrc
+.tmux.conf
+.config/alacritty/**
+.config/gh/**
+.config/nvim/**
+.config/sway/**
+.config/waybar/**
+.config/wofi/**
+.vimrc
+{{- else -}}
+_vimrc
+{{- end }}

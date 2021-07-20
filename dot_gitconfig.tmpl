@@ -1,3 +1,9 @@
+{{ if (eq .chezmoi.os "windows") -}}
+[credential "helperselector"]
+    selected = manager-core
+[credential]
+    helper = manager-core
+{{ end -}}
 [user]
     name = David Thompson
     email = {{ if (eq .chezmoi.username "dthompson") }} davthomp@redhat.com {{ else }} davidethompson@me.com {{ end }}
