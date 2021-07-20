@@ -10,4 +10,5 @@
 .vimrc
 {{- else -}}
 _vimrc
+AppData/**
 {{- end }}
