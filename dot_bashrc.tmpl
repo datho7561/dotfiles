@@ -59,6 +59,11 @@ giffy()
 	ffmpeg -i $1 -vf "fps=10" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize $2
 }
 
+lock()
+{
+	swaylock & systemctl suspend
+}
+
 {{ if (eq .chezmoi.username "dthompson") -}}
 #  dev xml
 bx()
