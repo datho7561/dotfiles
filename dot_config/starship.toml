@@ -9,3 +9,6 @@ style= "red"
 
 [git_branch]
 symbol = " "
+
+[package]
+style = "bold #FC9867"
