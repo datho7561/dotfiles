@@ -99,6 +99,19 @@ xmlbin()
 	cp ~/Documents/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/bin/lemminx
 	chmod ugo+x ~/bin/lemminx
 }
+bs()
+{
+	pushd ~/Documents/lemminx-schematron
+	./mvnw clean package -DskipTests
+	cp ~/Documents/lemminx-schematron/target/lemminx-schematron-*-SNAPSHOT.jar ~/Documents/lemminx-extensions
+	popd
+}
+ts()
+{
+	pushd ~/Documents/lemminx-schematron
+	./mvnw clean verify
+	popd
+}
 
 #  dev lemminx-maven
 bv()

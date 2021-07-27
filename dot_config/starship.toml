@@ -5,6 +5,7 @@ home_symbol = ""
 
 [java]
 symbol = "  "
+style= "red"
 
 [git_branch]
 symbol = " "
