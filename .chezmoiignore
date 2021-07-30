@@ -5,6 +5,7 @@
 .config/gh/**
 .config/nvim/**
 .config/sway/**
+.config/swaylock/**
 .config/waybar/**
 .config/wofi/**
 .vimrc
