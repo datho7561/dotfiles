@@ -148,7 +148,8 @@ tq()
 bm()
 {
 	pushd ~/Documents/vscode-microprofile
-	npm run build
+	npm run build-server
+	npm run build-ext
 	popd
 }
 tm()
@@ -166,6 +167,8 @@ im()
 versace()
 {
 	pushd ~/Documents/vscode-microprofile
+	code --uninstall-extension redhat.vscode-quarkus
+	code --uninstall-extension redhat.vscode-microprofile
 	rm -f *.vsix
 	vsce package
 	code --install-extension *.vsix
