@@ -64,6 +64,11 @@ lock()
 	swaylock & systemctl suspend
 }
 
+npmi()
+{
+	return npm i && npm audit --production
+}
+
 {{ if (eq .chezmoi.username "dthompson") -}}
 #  dev xml
 bx()
