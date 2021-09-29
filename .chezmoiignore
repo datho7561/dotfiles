@@ -8,6 +8,7 @@
 .config/swaylock/**
 .config/waybar/**
 .config/wofi/**
+.config/mako/**
 .vimrc
 {{- else -}}
 _vimrc
