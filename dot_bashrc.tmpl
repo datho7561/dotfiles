@@ -21,6 +21,10 @@ if ! [[ "$PATH" =~ "$HOME/.npm-global/bin" ]]
 then
 	PATH="$HOME/.npm-global/bin:$PATH"
 fi
+if ! [[ "$PATH" =~ "$HOME/.deno/bin" ]]
+then
+	PATH="$HOME/.deno/bin:$PATH"
+fi
 export PATH
 
 ## Prompt
@@ -191,6 +195,8 @@ export EDITOR=vim
 {{ if (eq .chezmoi.username "dthompson") -}}
 export GRAALVM_HOME='/home/dthompson/.sdkman/candidates/java/20.3.1.2-mandrel'
 {{- end }}
+
+export DENO_INSTALL="/home/david/.deno"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/{{ .chezmoi.username }}/.sdkman"
