@@ -30,7 +30,11 @@ set $menu wofi -i --style ~/.config/wofi/wofi.css --show drun | xargs swaymsg ex
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/default.png fill
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+{{- if (eq .chezmoi.hostname "fedoravm") }}
+output * bg ~/.config/sway/background.jpg fill
+{{- else }}
 output * bg ~/.config/sway/background.png fill
+{{- end }}
 
 # Example configuration:
 #
