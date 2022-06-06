@@ -185,6 +185,80 @@ versace()
 }
 {{- end }}
 
+{{ if (eq .chezmoi.username "david") -}}
+## development shortcuts for local computer
+#  dev xml
+bx()
+{
+	pushd ~/Documents/Programming/vscode-xml
+	npm run build-server
+	popd
+}
+bxn()
+{
+	graal
+	pushd ~/Documents/Programming/lemminx
+	./mvnw clean package -Dnative -DskipTests
+	cp ~/Documents/Programming/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Programming/vscode-xml/server/lemminx-linux
+	chmod u+x ~/Documents/Programming/vscode-xml/server/lemminx-linux
+	popd
+}
+tx()
+{
+	pushd ~/Documents/Programming/lemminx
+	./mvnw verify
+	popd
+}
+
+#  dev quarkus
+bq()
+{
+	pushd ~/Documents/Programming/mp/vscode-quarkus
+	npm run build
+	popd
+}
+tq()
+{
+	pushd ~/Documents/Programming/mp/quarkus-ls/quarkus.ls.ext/com.redhat.quarkus.ls
+	./mvnw clean verify
+	popd
+	pushd ~/Documents/Programming/mp/quarkus-ls/quarkus.jdt.ext
+	./mvnw clean verify
+	popd
+}
+
+#  dev microprofile
+bm()
+{
+	pushd ~/Documents/Programming/mp/vscode-microprofile
+	npm run build-server
+	npm run build-ext
+	popd
+}
+tm()
+{
+	pushd ~/Documents/Programming/mp/lsp4mp/microprofile.ls/org.eclipse.lsp4mp.ls
+	./mvnw test
+	popd
+}
+im()
+{
+	pushd ~/Documents/Programming/mp/lsp4mp/microprofile.jdt
+	./mvnw clean verify
+	popd
+}
+versace()
+{
+	pushd ~/Documents/Programming/mp/vscode-microprofile
+	code --uninstall-extension redhat.vscode-quarkus
+	code --uninstall-extension redhat.vscode-microprofile
+	rm -f *.vsix
+	vsce package
+	code --install-extension *.vsix
+	popd
+}
+{{- end }}
+
 ## Environment
 
 # Use the base 16 terminal colors for ls
