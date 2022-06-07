@@ -25,6 +25,10 @@ if ! [[ "$PATH" =~ "$HOME/.deno/bin" ]]
 then
 	PATH="$HOME/.deno/bin:$PATH"
 fi
+if ! [[ "$PATH" =~ "$HOME/.cargo/bin" ]]
+then
+	PATH="$HOME/.cargo/bin:$PATH"
+fi
 export PATH
 
 ## Prompt
@@ -44,11 +48,10 @@ alias open='xdg-open'
 alias edit='$EDITOR'
 alias podrun='podman run --rm -it'
 
-{{ if (eq .chezmoi.username "dthompson") -}}
+{{ if (eq .chezmoi.username "davthomp") -}}
 alias theia='podman run --rm -p 3000:3000 theiaide/theia'
-alias minishit='minishift'
-alias graal='sdk use java 20.2.0.r11-grl'
-alias lsp4jclean='rm -rf /home/dthompson/.m2/repository/org/eclipse/lsp4j'
+alias mandrel='sdk use java 22.1.0.0.r17-mandrel'
+alias jdk11='sdk use java 11.0.15-tem'
 {{- end }}
 
 ## Functions
@@ -73,51 +76,40 @@ npmi()
 	npm i && npm audit --production
 }
 
-{{ if (eq .chezmoi.username "dthompson") -}}
+{{ if (eq .chezmoi.username "davthomp") -}}
+# developer shortcuts for work computer
 #  dev xml
 bx()
 {
-	pushd ~/Documents/vscode-xml
+	pushd ~/Documents/Projects/vscode-xml
 	npm run build-server
 	popd
 }
 bxn()
 {
 	graal
-	pushd ~/Documents/lemminx
+	pushd ~/Documents/Projects/lemminx
 	./mvnw clean package -Dnative -DskipTests
-	cp ~/Documents/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/vscode-xml/server/lemminx-linux
-	chmod u+x ~/Documents/vscode-xml/server/lemminx-linux
+	cp ~/Documents/Projects/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Projects/vscode-xml/server/lemminx-linux
+	chmod u+x ~/Documents/Projects/vscode-xml/server/lemminx-linux
 	popd
 }
 tx()
 {
-	pushd ~/Documents/lemminx
+	pushd ~/Documents/Projects/lemminx
 	./mvnw verify
 	popd
 }
-cocxml()
-{
-	pushd ~/Documents/lemminx
-	./mvnw clean package -DskipTests
-	cp ~/Documents/lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-*uber.jar ~/.config/coc/extensions/coc-xml-data/org.eclipse.lemminx-SNAPSHOT-uber.jar
-	popd
-}
-xmlbin()
-{
-	cp ~/Documents/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/bin/lemminx
-	chmod ugo+x ~/bin/lemminx
-}
 bs()
 {
-	pushd ~/Documents/lemminx-schematron
+	pushd ~/Documents/Projects/lemminx-schematron
 	./mvnw clean package -DskipTests
-	cp ~/Documents/lemminx-schematron/target/lemminx-schematron-*-SNAPSHOT.jar ~/Documents/lemminx-extensions
+	cp ~/Documents/Projects/lemminx-schematron/target/lemminx-schematron-*-SNAPSHOT.jar ~/Documents/lemminx-extensions
 	popd
 }
 ts()
 {
-	pushd ~/Documents/lemminx-schematron
+	pushd ~/Documents/Projects/lemminx-schematron
 	./mvnw clean verify
 	popd
 }
@@ -125,11 +117,11 @@ ts()
 #  dev lemminx-maven
 bv()
 {
-	pushd ~/Documents/lemminx-maven/lemminx-maven
+	pushd ~/Documents/Projects/lemminx-maven/lemminx-maven
 	../mvnw clean package
 	rm -f ~/Documents/lemminx-extensions/lemminx-maven/*.jar
 	rm -f ~/Documents/lemminx-extensions/lemminx-maven/*.zip
-	cp ~/Documents/lemminx-maven/lemminx-maven/target/lemminx-maven-*-SNAPSHOT-zip-with-dependencies.zip ~/Documents/lemminx-extensions/lemminx-maven
+	cp ~/Documents/Projects/lemminx-maven/lemminx-maven/target/lemminx-maven-*-SNAPSHOT-zip-with-dependencies.zip ~/Documents/lemminx-extensions/lemminx-maven
 	popd
 	pushd ~/Documents/lemminx-extensions/lemminx-maven
 	unzip *.zip
@@ -139,16 +131,16 @@ bv()
 #  dev quarkus
 bq()
 {
-	pushd ~/Documents/vscode-quarkus
+	pushd ~/Documents/Projects/mp/vscode-quarkus
 	npm run build
 	popd
 }
 tq()
 {
-	pushd ~/Documents/quarkus-ls/quarkus.ls.ext/com.redhat.quarkus.ls
+	pushd ~/Documents/Projects/mp/quarkus-ls/quarkus.ls.ext/com.redhat.quarkus.ls
 	./mvnw clean verify
 	popd
-	pushd ~/Documents/quarkus-ls/quarkus.jdt.ext
+	pushd ~/Documents/Projects/mp/quarkus-ls/quarkus.jdt.ext
 	./mvnw clean verify
 	popd
 }
@@ -156,26 +148,26 @@ tq()
 #  dev microprofile
 bm()
 {
-	pushd ~/Documents/vscode-microprofile
+	pushd ~/Documents/Projects/mp/vscode-microprofile
 	npm run build-server
 	npm run build-ext
 	popd
 }
 tm()
 {
-	pushd ~/Documents/lsp4mp/microprofile.ls/org.eclipse.lsp4mp.ls
+	pushd ~/Documents/Projects/mp/lsp4mp/microprofile.ls/org.eclipse.lsp4mp.ls
 	./mvnw test
 	popd
 }
 im()
 {
-	pushd ~/Documents/lsp4mp/microprofile.jdt
+	pushd ~/Documents/Projects/mp/lsp4mp/microprofile.jdt
 	./mvnw clean verify
 	popd
 }
 versace()
 {
-	pushd ~/Documents/vscode-microprofile
+	pushd ~/Documents/Projects/mp/vscode-microprofile
 	code --uninstall-extension redhat.vscode-quarkus
 	code --uninstall-extension redhat.vscode-microprofile
 	rm -f *.vsix
@@ -266,13 +258,16 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 export TERM=xterm-256color # Needed to get vim to work in alacritty
 export EDITOR=vim
 
-{{ if (eq .chezmoi.username "dthompson") -}}
-export GRAALVM_HOME='/home/dthompson/.sdkman/candidates/java/20.3.1.2-mandrel'
+{{ if (eq .chezmoi.username "davthomp") -}}
+export GRAALVM_HOME='/home/dthompson/.sdkman/candidates/java/22.1.0.0.r17-mandrel'
 {{- end }}
 
 export DENO_INSTALL="/home/david/.deno"
+source "$HOME/.cargo/env"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/{{ .chezmoi.username }}/.sdkman"
 [[ -s "/home/{{ .chezmoi.username }}/.sdkman/bin/sdkman-init.sh" ]] && source "/home/{{ .chezmoi.username }}/.sdkman/bin/sdkman-init.sh"
-source "$HOME/.cargo/env"
