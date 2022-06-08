@@ -26,11 +26,8 @@ Plug 'alker0/chezmoi.vim', {'branch': 'main'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-if !has('nvim')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-else
+if has('nvim')
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
 endif
 
 call plug#end()
