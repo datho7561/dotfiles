@@ -259,10 +259,10 @@ export TERM=xterm-256color # Needed to get vim to work in alacritty
 export EDITOR=vim
 
 {{ if (eq .chezmoi.username "davthomp") -}}
-export GRAALVM_HOME='/home/dthompson/.sdkman/candidates/java/22.1.0.0.r17-mandrel'
+export GRAALVM_HOME='/home/davthomp/.sdkman/candidates/java/22.1.0.0.r17-mandrel'
 {{- end }}
 
-export DENO_INSTALL="/home/david/.deno"
+export DENO_INSTALL="/home/{{ .chezmoi.username }}/.deno"
 source "$HOME/.cargo/env"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
