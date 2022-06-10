@@ -40,9 +40,17 @@ fi
 
 ## Aliases
 
-alias ls='TERM=xterm ls --color=auto'
-alias l='ls'
-alias ll='ls -lah'
+if which exa > /dev/null
+then
+	alias ls='exa -1 --icons'
+	alias l='ls'
+	alias ll='ls -lah'
+else
+	alias ls='TERM=xterm ls --color=auto'
+	alias l='ls'
+	alias ll='ls -lah'
+fi
+
 alias g='git'
 alias open='xdg-open'
 alias edit='$EDITOR'
