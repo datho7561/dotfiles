@@ -45,6 +45,7 @@ then
 	alias ls='exa -1 --icons'
 	alias l='ls'
 	alias ll='ls -lah'
+	alias tree='exa --tree -L'
 else
 	alias ls='TERM=xterm ls --color=auto'
 	alias l='ls'
@@ -149,6 +150,12 @@ tq()
 	./mvnw clean verify
 	popd
 	pushd ~/Documents/Projects/mp/quarkus-ls/quarkus.jdt.ext
+	./mvnw clean verify
+	popd
+	pushd ~/Documents/Projects/mp/quarkus-ls/qute.ls/com.redhat.qute.ls
+	./mvnw clean verify
+	popd
+	pushd ~/Documents/Projects/mp/quarkus-ls/qute.jdt
 	./mvnw clean verify
 	popd
 }
