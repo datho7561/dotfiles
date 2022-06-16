@@ -96,10 +96,10 @@ bx()
 }
 bxn()
 {
-	graal
+	mandrel
 	pushd ~/Documents/Projects/lemminx
 	./mvnw clean package -Dnative -DskipTests
-	cp ~/Documents/Projects/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Projects/vscode-xml/server/lemminx-linux
+	cp ~/Documents/Projects/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Projects/vscode-xml/server
 	chmod u+x ~/Documents/Projects/vscode-xml/server/lemminx-linux
 	popd
 }
@@ -203,10 +203,10 @@ bx()
 }
 bxn()
 {
-	graal
+	mandrel
 	pushd ~/Documents/Programming/lemminx
 	./mvnw clean package -Dnative -DskipTests
-	cp ~/Documents/Programming/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Programming/vscode-xml/server/lemminx-linux
+	cp ~/Documents/Programming/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Programming/vscode-xml/server
 	chmod u+x ~/Documents/Programming/vscode-xml/server/lemminx-linux
 	popd
 }
