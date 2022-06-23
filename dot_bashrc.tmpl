@@ -99,8 +99,9 @@ bxn()
 	mandrel
 	pushd ~/Documents/Projects/lemminx
 	./mvnw clean package -Dnative -DskipTests
+	rm ~/Documents/Projects/vscode-xml/server/lemminx-linux*
 	cp ~/Documents/Projects/lemminx/org.eclipse.lemminx/target/lemminx-linux* ~/Documents/Projects/vscode-xml/server
-	chmod u+x ~/Documents/Projects/vscode-xml/server/lemminx-linux
+	chmod u+x ~/Documents/Projects/vscode-xml/server/lemminx-linux*
 	popd
 }
 tx()

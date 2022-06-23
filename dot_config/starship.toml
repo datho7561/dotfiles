@@ -11,4 +11,5 @@ style= "red"
 symbol = " "
 
 [package]
+symbol= " "
 style = "bold #FC9867"
