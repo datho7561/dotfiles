@@ -3,11 +3,6 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
 
-" use solarized to indicate that this is neovim
-set background="light"
-colorscheme solarized8
-let g:lightline.colorscheme = 'solarized'
-
 " lsp
 lua << EOF
 local nvim_lsp = require('lspconfig')
