@@ -61,7 +61,9 @@ alias podrun='podman run --rm -it'
 {{ if (eq .chezmoi.username "davthomp") -}}
 alias theia='podman run --rm -p 3000:3000 theiaide/theia'
 alias mandrel='sdk use java 22.1.0.0.r17-mandrel'
+alias jdk17='sdk use java 17.0.3-tem'
 alias jdk11='sdk use java 11.0.15-tem'
+alias jdk8='sdk use java 8.0.332-tem'
 {{- end }}
 
 ## Functions
