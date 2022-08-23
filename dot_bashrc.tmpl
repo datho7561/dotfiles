@@ -154,17 +154,8 @@ bq()
 }
 tq()
 {
-	pushd ~/Documents/Projects/mp/quarkus-ls/quarkus.ls.ext/com.redhat.quarkus.ls
-	./mvnw clean verify
-	popd
-	pushd ~/Documents/Projects/mp/quarkus-ls/quarkus.jdt.ext
-	./mvnw clean verify
-	popd
-	pushd ~/Documents/Projects/mp/quarkus-ls/qute.ls/com.redhat.qute.ls
-	./mvnw clean verify
-	popd
-	pushd ~/Documents/Projects/mp/quarkus-ls/qute.jdt
-	./mvnw clean verify
+	pushd ~
+	lua ~/Scripts/run-quarkus-ls-tests.lua
 	popd
 }
 
@@ -295,6 +286,7 @@ source "$HOME/.cargo/env"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[·-f·~/.fzf.bash·]·&&·source·~/.fzf.bash
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/{{ .chezmoi.username }}/.sdkman"
