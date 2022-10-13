@@ -28,6 +28,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
+  Plug 'rose-pine/neovim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
 
 call plug#end()
@@ -172,7 +174,7 @@ function ApplyMolokai()
   call lightline#tabline()
 endfunction
 
-" change colorscheme and lightline to molokai
+" change colorscheme and lightline to nord
 function ApplyNord()
   set background=dark
   colorscheme nord
@@ -181,6 +183,18 @@ function ApplyNord()
   call lightline#init()
   call lightline#tabline()
 endfunction
+
+" change colorscheme to rose pine
+if has('nvim')
+  function ApplyRosePine()
+    set background=dark
+    colorscheme rose-pine
+    let g:lightline.colorscheme = 'rosepine'
+    " HACK: manual call to lightline update
+    call lightline#init()
+    call lightline#tabline()
+  endfunction
+endif
 
 
 " Set Leader
@@ -218,6 +232,9 @@ nnoremap <leader>^ :bd<cr>
 nnoremap <leader>tn :call ApplyNord()<cr>
 nnoremap <leader>tm :call ApplyMolokai()<cr>
 nnoremap <leader>ts :call ApplySolarized()<cr>
+if has('nvim')
+  nnoremap <leader>tr :call ApplyRosePine()<cr>
+endif
 
 " orgmode substitue
 nnoremap <leader>oo :e ~/Desktop/todo.txt<cr>

@@ -94,6 +94,15 @@ npmi()
 
 {{ if (eq .chezmoi.username "davthomp") -}}
 # developer shortcuts for work computer
+
+#  vscode utils
+function vscode_get_folder_id () {
+	# Only true on Linux
+	cn_folder=`readlink -f ${1}`
+	inode=`stat --format="%i" "${cn_folder}"`
+	echo -n "${cn_folder}${inode}" | md5sum -
+}
+
 #  dev xml
 bx()
 {
@@ -120,14 +129,14 @@ tx()
 bs()
 {
 	pushd ~/Documents/Projects/lemminx-schematron
-	./mvnw clean package -DskipTests
+	mvn clean package -DskipTests
 	cp ~/Documents/Projects/lemminx-schematron/target/lemminx-schematron-*-SNAPSHOT.jar ~/Documents/lemminx-extensions
 	popd
 }
 ts()
 {
 	pushd ~/Documents/Projects/lemminx-schematron
-	./mvnw clean verify
+	mvn clean verify
 	popd
 }
 
