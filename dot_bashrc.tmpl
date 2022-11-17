@@ -285,6 +285,10 @@ versace()
 
 ## Environment
 
+# "docker"
+export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+export TESTCONTAINERS_RYUK_DISABLED=true
+
 # Use the base 16 terminal colors for ls
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 export TERM=xterm-256color # Needed to get vim to work in alacritty

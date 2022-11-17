@@ -14,8 +14,8 @@ endif
 call plug#begin()
 
 Plug 'datho7561/molokai', {'branch': 'monokai-datho7561'} " my fork of molokai
-Plug 'arcticicestudio/nord-vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'editorconfig/editorconfig-vim'
@@ -174,11 +174,11 @@ function ApplyMolokai()
   call lightline#tabline()
 endfunction
 
-" change colorscheme and lightline to nord
-function ApplyNord()
-  set background=dark
-  colorscheme nord
-  let g:lightline.colorscheme = 'nord'
+" change colorscheme and lightline to gruvbox light
+function ApplyGruvbox()
+  set background=light
+  colorscheme gruvbox
+  let g:lightline.colorscheme = 'gruvbox'
   " HACK: manual call to lightline update
   call lightline#init()
   call lightline#tabline()
@@ -229,9 +229,9 @@ nnoremap <leader><s-tab> :bp<cr>
 nnoremap <leader>^ :bd<cr>
 
 " Theme shortcuts
-nnoremap <leader>tn :call ApplyNord()<cr>
 nnoremap <leader>tm :call ApplyMolokai()<cr>
 nnoremap <leader>ts :call ApplySolarized()<cr>
+nnoremap <leader>tg :call ApplyGruvbox()<cr>
 if has('nvim')
   nnoremap <leader>tr :call ApplyRosePine()<cr>
 endif
