@@ -10,3 +10,4 @@ pager:
 aliases:
     co: pr checkout
     prs: pr list
+    xo: pr checkout
