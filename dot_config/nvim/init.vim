@@ -27,20 +27,32 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   --buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  --buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  --buf_set_keymap('n', '<leader>ce', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.refresh()<CR>", opts)
 
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'lemminx', 'eslint', 'tsserver', 'jsonls', 'rust_analyzer'}
+local servers = {'eslint', 'tsserver', 'jsonls', 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+lspconfig['lemminx'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    xml = {
+      codeLens = {
+        enabled = true
+      }
+    }
+  }
+}
 
 -- the following lines are a copy of https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 

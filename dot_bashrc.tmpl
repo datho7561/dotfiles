@@ -61,6 +61,11 @@ else
 	alias ll='ls -lah'
 fi
 
+if which code > /dev/null
+then
+	alias dev='code . -r'
+fi
+
 alias vim='$EDITOR'
 alias g='git'
 alias open='xdg-open'
