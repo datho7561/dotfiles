@@ -8,7 +8,7 @@ colors: # Monokai
     foreground: '#EAE9E1'
   cursor:
     text:    '#272822'
-    cursor:  '#EAE9E1'
+    cursor:  '#84876e'
   normal:
     black:   '#272822'
     red:     '#f92672'
