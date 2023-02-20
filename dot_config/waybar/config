@@ -4,7 +4,11 @@
   "modules-center": ["clock"],
   "modules-right": ["battery", "pulseaudio"],
   "clock": {
-    "format": "{:%d %b, %Y - %H:%M %p}"
+    "format": "{:%d %b, %Y - %H:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month"
+    }
   },
   "battery": {
     "format": " {capacity}%",
