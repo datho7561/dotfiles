@@ -4,8 +4,7 @@
   "modules-center": ["clock"],
   "modules-right": ["battery", "pulseaudio"],
   "clock": {
-    "format": "{:%Y/%m/%d %l:%M %p}",
-    "on-click": "gnome-calendar",
+    "format": "{:%d %b, %Y - %H:%M %p}"
   },
   "battery": {
     "format": " {capacity}%",
