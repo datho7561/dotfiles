@@ -77,6 +77,10 @@ fi
 
 alias vim='$EDITOR'
 alias g='git'
+. /usr/share/bash-completion/completions/git
+__git_complete_fn=$(complete -p git)
+eval "${__git_complete_fn% *} g"
+unset __git_complete_fn
 alias open='xdg-open'
 alias edit='$EDITOR'
 alias podrun='podman run --rm -it'
