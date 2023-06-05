@@ -27,10 +27,12 @@ Plug 'alker0/chezmoi.vim', {'branch': 'main'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'rottencandy/vimkubectl'
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'rose-pine/neovim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'mfussenegger/nvim-jdtls'
   " autocomplete
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'

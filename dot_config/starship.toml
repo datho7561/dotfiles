@@ -13,3 +13,6 @@ symbol = " "
 [package]
 symbol= " "
 style = "bold #FC9867"
+
+[kubernetes]
+disabled = false
