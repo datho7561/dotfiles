@@ -16,9 +16,10 @@ style = "bold #FC9867"
 
 [kubernetes]
 disabled = false
-format = "[⛵ $cluster/$user](blue) "
+format = "[$symbol$context](blue) "
 
-[kubernetes.user_aliases]
-'developer/.*' = 'developer'
-'kubeadmin/.*' = 'kubeadmin'
+[kubernetes.context_aliases]
+'.*crc.*' = 'crc'
+'.*openshiftapps.*' = 'sandbox'
+'.*minikube.*' = 'minikube'
 

@@ -34,10 +34,13 @@ if ! [[ "$PATH" =~ "/usr/local/bin" ]]
 then
 	PATH="/usr/local/bin:$PATH"
 fi
-export PATH
 if ! [[ "$PATH" =~ "$HOME/Scripts" ]]
 then
 	PATH="$HOME/Scripts:$PATH"
+fi
+if ! [[ "$PATH" =~ "$HOME/gems/bin" ]]
+then
+	PATH="$HOME/gems/bin:$PATH"
 fi
 export PATH
 
@@ -314,6 +317,12 @@ then
 else
 	export EDITOR=vim
 fi
+
+# wayland support for java on sway
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# ruby
+export GEM_HOME="$HOME/gems"
 
 {{ if (eq .chezmoi.username "davthomp") -}}
 export GRAALVM_HOME='/home/davthomp/.sdkman/candidates/java/22.1.0.0.r17-mandrel'
