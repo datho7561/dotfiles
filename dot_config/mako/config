@@ -1,1 +1,6 @@
-font=FiraCode Nerd Font 14
+font=FiraCode Nerd Font 12
+background-color=#1E1F1C
+text-color=#EAE9E1
+border-color=#272822
+width=500
+height=150
