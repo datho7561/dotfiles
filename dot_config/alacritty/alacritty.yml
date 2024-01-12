@@ -56,7 +56,6 @@ colors: # Monokai
 #    white:   '0xfdf6e3'
 window:
   decorations: none
-  startup_mode: Maximized
   dynamic_padding: true
   padding:
     x: 5
