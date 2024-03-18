@@ -42,6 +42,10 @@ if ! [[ "$PATH" =~ "$HOME/gems/bin" ]]
 then
 	PATH="$HOME/gems/bin:$PATH"
 fi
+if ! [[ "$PATH" =~ "$HOME/LanguageServers/lua-language-server/bin" ]]
+then
+	PATH="$HOME/LanguageServers/lua-language-server/bin:$PATH"
+fi
 export PATH
 
 ## broot
@@ -320,6 +324,9 @@ fi
 
 # wayland support for java on sway
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Docker
+unset DOCKER_HOST
 
 # 😒
 export NODE_OPTIONS='--dns-result-order=ipv4first'
