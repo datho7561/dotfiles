@@ -254,10 +254,10 @@ plugins {
 
 themes {
     monokai {
-        fg "#CECCC0"
-        bg "#1e1f1c"
-        black "#414339"
-        blue "#272822"
+        fg "#84876e"
+        bg "#414339"
+        black "#272822"
+        blue "#52a2da"
         cyan "#66D9EF"
         green "#a9dc76"
         magenta "#AE81FF"
