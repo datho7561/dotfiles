@@ -19,13 +19,13 @@
 }
 
 #workspaces button * {
-  padding: 3px 10px 3px 10px;
+  padding: 0px 9px 0px 9px;
   background-color: #414339;
   color: #66D9EF;
 }
 
 #workspaces button.focused * {
-  padding: 3px 10px 3px 10px;
+  padding: 0px 9px 0px 9px;
   background-color: #A9DC76;
   color: #1E1F1C;
 }
