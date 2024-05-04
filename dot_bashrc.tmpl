@@ -308,7 +308,7 @@ versace()
 {{- end }}
 
 ## autocomplete
-if which code &> /dev/null
+if which kubectl &> /dev/null
 then
 	source <(kubectl completion bash)
 fi
