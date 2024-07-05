@@ -328,6 +328,9 @@ fi
 # wayland support for java on sway
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# try to fix an Eclipse error
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
+
 # Docker
 unset DOCKER_HOST
 
