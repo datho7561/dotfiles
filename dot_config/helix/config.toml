@@ -1,0 +1,11 @@
+
+theme = "monokai_pro"
+
+[editor.whitespace]
+render = "all"
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+insert = "bar"

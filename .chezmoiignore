@@ -1,5 +1,7 @@
 {{ if (eq .chezmoi.os "windows") -}}
 .bashrc
+.zshrc
+.zprofile
 .tmux.conf
 .config/alacritty/**
 .config/gh/**
@@ -9,8 +11,21 @@
 .config/waybar/**
 .config/wofi/**
 .config/mako/**
+.config/rofi/**
 .vimrc
-{{- else -}}
+{{- else if (eq .chezmoi.os "linux") -}}
+_vimrc
+.zshrc
+.zprofile
+AppData/**
+{{- else if (eq .chezmoi.os "darwin") }}
+.bashrc
 _vimrc
 AppData/**
+.config/sway/**
+.config/swaylock/**
+.config/waybar/**
+.config/wofi/**
+.config/mako/**
+.config/rofi/**
 {{- end }}

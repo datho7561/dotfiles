@@ -27,13 +27,19 @@ background = "#1e1f1c"
 foreground = "#EAE9E1"
 
 [font]
+{{ if eq .chezmoi.os "darwin" -}}
+size = 13
+{{ else }}
 size = 8
+{{- end }}
 
 [font.normal]
 family = "FiraCode Nerd Font"
 
 [window]
+{{ if not (eq .chezmoi.os "darwin") -}}
 decorations = "none"
+{{- end -}}
 dynamic_padding = true
 opacity = 0.96
 
