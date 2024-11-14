@@ -337,6 +337,7 @@ export GEM_HOME="$HOME/gems"
 
 {{ if (eq .chezmoi.username "davthomp") -}}
 export GRAALVM_HOME='/home/davthomp/.sdkman/candidates/java/22.1.0.0.r17-mandrel'
+export DEBUG_VSCODE_JAVA='true'
 {{- end }}
 
 export DENO_INSTALL="/home/{{ .chezmoi.username }}/.deno"
