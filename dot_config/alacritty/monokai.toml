@@ -1,0 +1,29 @@
+# Monokai (with datho7561's mods)
+
+[colors.primary]
+background = "#1e1f1c"
+foreground = "#EAE9E1"
+
+[colors.bright]
+black = "#414339"
+blue = "#52a2da"
+cyan = "#66D9EF"
+green = "#a9dc76"
+magenta = "#AE81FF"
+red = "#f92672"
+white = "#CECCC0"
+yellow = "#E6DB74"
+
+[colors.cursor]
+cursor = "#84876e"
+text = "#272822"
+
+[colors.normal]
+black = "#272822"
+blue = "#52a2da"
+cyan = "#66D9EF"
+green = "#a9dc76"
+magenta = "#AE81FF"
+red = "#f92672"
+white = "#f8f8f2"
+yellow = "#E6DB74"

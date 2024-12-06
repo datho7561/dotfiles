@@ -1,6 +1,9 @@
 
 theme = "monokai_pro"
 
+[editor]
+auto-format = false
+
 [editor.whitespace]
 render = "all"
 
@@ -9,3 +12,7 @@ hidden = false
 
 [editor.cursor-shape]
 insert = "bar"
+
+[editor.indent-guides]
+render = true
+character = "⸽"

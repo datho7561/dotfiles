@@ -340,6 +340,11 @@ export GRAALVM_HOME='/home/davthomp/.sdkman/candidates/java/22.1.0.0.r17-mandrel
 export DEBUG_VSCODE_JAVA='true'
 {{- end }}
 
+if which nnn &> /dev/null
+then
+	export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+end
+
 export DENO_INSTALL="/home/{{ .chezmoi.username }}/.deno"
 source "$HOME/.cargo/env"
 export NVM_DIR="$HOME/.nvm"
