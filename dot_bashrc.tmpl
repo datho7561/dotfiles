@@ -343,7 +343,7 @@ export DEBUG_VSCODE_JAVA='true'
 if which nnn &> /dev/null
 then
 	export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-end
+fi
 
 export DENO_INSTALL="/home/{{ .chezmoi.username }}/.deno"
 source "$HOME/.cargo/env"
